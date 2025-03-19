@@ -17,9 +17,8 @@ type TreeNodeInt = TreeNode[int]
 func main() {
 	exampleTree := &TreeNodeInt{Val: 7, Left: &TreeNodeInt{Val: 3}, Right: &TreeNodeInt{Val: 15, Left: &TreeNodeInt{Val: 9}, Right: &TreeNodeInt{Val: 20}}}
 
-	/**
-	 * Inorder Traversal
-	**/
+	fmt.Println("----- Inorder Traversal ------")
+
 	dfsInorderIter := &iterator.CPSIterator[TreeNodeInt, int]{}
 	dfsInorderIter.Init(exampleTree,
 		func(node *TreeNodeInt, cont func() int) int {
@@ -29,14 +28,12 @@ func main() {
 				})
 			})
 		})
-	fmt.Println("----- Inorder Traversal ------")
 	for dfsInorderIter.HasNext() {
 		fmt.Println(dfsInorderIter.Next())
 	}
 
-	/**
-	 * Preorder Traversal
-	**/
+	fmt.Println("----- Preorder Traversal ------")
+
 	dfsPreorderIter := &iterator.CPSIterator[TreeNodeInt, int]{}
 	dfsPreorderIter.Init(exampleTree,
 		func(node *TreeNodeInt, cont func() int) int {
@@ -46,14 +43,12 @@ func main() {
 				})
 			})
 		})
-	fmt.Println("----- Preorder Traversal ------")
 	for dfsPreorderIter.HasNext() {
 		fmt.Println(dfsPreorderIter.Next())
 	}
 
-	/**
-	 * Postorder Traversal
-	**/
+	fmt.Println("----- Postorder Traversal ------")
+
 	dfsPostorderIter := &iterator.CPSIterator[TreeNodeInt, int]{}
 	dfsPostorderIter.Init(exampleTree,
 		func(node *TreeNodeInt, cont func() int) int {
@@ -63,7 +58,6 @@ func main() {
 				})
 			})
 		})
-	fmt.Println("----- Postorder Traversal ------")
 	for dfsPostorderIter.HasNext() {
 		fmt.Println(dfsPostorderIter.Next())
 	}
