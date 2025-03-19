@@ -21,6 +21,8 @@ func (it *CPSIterator[S, T]) Next() T {
 	val := it.head
 	if it.nextCont != nil {
 		it.head = it.nextCont()
+	} else {
+		it.hasNext = false
 	}
 	return val
 }
